@@ -61,8 +61,7 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ngRoute'])
 
 }])
 
-    .run(['$rootScope', '$location', '$http', 'Auth', function ($rootScope, $location, $http, Auth) {
-
+    .run(['$rootScope', '$location', '$http', 'Auth', function ($rootScope, $location, $http, Auth) {    
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             $rootScope.error = null;
 			 console.log('next access' + next.access.bitMask);

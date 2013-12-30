@@ -1,19 +1,17 @@
 <div class="hero-unit">
-  <h1>Log in</h1>
-  <p>This site is an example of how one can implement role based authentication in Angular applications as outlined in<a href="http://www.frederiknakstad.com/authentication-in-single-page-applications-with-angular-js/"> this blogpost</a>. All the code can be found in<a href="https://github.com/fnakstad/angular-client-side-auth"> this GitHub repository</a>. You can either register a new user, log in with one of the two predefined users...</p>
-  <ul>
-    <li>admin/123</li>
-    <li>user/123</li>
-  </ul>
+  <h1>环保系统!</h1>
+  <p>本系统分为，进料、出渣、水泵、温度控制等等模块。实现自动化环保监控和管理！</p>
+  <p>默认用户名，密码 user/123  </p>
+  
   <form ng-submit="login()" name="loginForm" class="form-horizontal">
     <div class="control-group">
-      <label for="username" class="control-label">Username</label>
+      <label for="username" class="control-label">用户名</label>
       <div class="controls">
         <input type="text" ng-model="username" placeholder="Username" name="username" required="required" autofocus="autofocus"/>
       </div>
     </div>
     <div class="control-group">
-      <label for="password" class="control-label">Password</label>
+      <label for="password" class="control-label">密码</label>
       <div class="controls">
         <input type="password" ng-model="password" placeholder="Password" name="password" required="required"/>
       </div>
@@ -32,6 +30,5 @@
     </div>
   </form>
   <hr/>
-  <p>... or use one of them fancy social logins:</p>
-  <div class="btn-group"><a href="" ng-click="loginOauth('facebook')" class="btn"><i class="icon-facebook-sign"></i> Facebook</a><a href="" ng-click="loginOauth('twitter')" class="btn"><i class="icon-twitter"></i> Twitter</a><a href="" ng-click="loginOauth('google')" class="btn"><i class="icon-google-plus-sign"></i> Google</a><a href="" ng-click="loginOauth('linkedin')" class="btn"><i class="icon-linkedin"></i> LinkedIn</a></div>
+ 
 </div>
