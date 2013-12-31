@@ -48,6 +48,12 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ngRoute', 'ngJustGage'
             controller:     'YinfengjiCtrl',
             access:         access.user
         });   
+    $routeProvider.when('/wendu',
+        {
+            templateUrl:    '/partials/private.wendu.html',
+            controller:     'WenduCtrl',
+            access:         access.user
+        });   
     $routeProvider.when('/admin',
         {
             templateUrl:    '/partials/admin.html',

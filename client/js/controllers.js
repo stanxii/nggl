@@ -113,3 +113,16 @@ angular.module('angular-client-side-auth')
         });
     }, 1000);
 }]);
+
+angular.module('angular-client-side-auth')
+.controller('WenduCtrl',
+['$rootScope', '$scope', function($rootScope, $scope) {
+   $scope.wendu-lutang = 42;  
+
+    setInterval(function(){
+        $scope.$apply(function() {
+            $scope.wendu-lutang = getRandomInt(10, 90);
+           
+        });
+    }, 1000);
+}]);
