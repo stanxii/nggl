@@ -49,3 +49,8 @@ body {
 .fade-show-setup.fade-show-start {
     opacity:1;
 }
+
+//Login page
+.hero-unit {
+    text-align: center;
+}

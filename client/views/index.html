@@ -16,27 +16,51 @@
 </head>
 <body ng-cloak>
 
-
-		<div ng-controller="NavCtrl" class="navbar">
+    <div ng-controller="NavCtrl">
+		<div  class="navbar navbar-inverse">
 		  <div class="navbar-inner">
 			<div class="container-fluid">
 			  <ul class="nav">
-				<li access-level="accessLevels.anon" active-nav="active-nav"><a href="/login">Log in</a></li>
-				<li access-level="accessLevels.admin" active-nav="active-nav"><a href="/register">Register</a></li>
-				<li access-level="accessLevels.user" active-nav="active-nav"><a href="/">Home</a></li>
-				<li access-level="accessLevels.user" active-nav="active-nav"><a href="/private">Private</a></li>
-				<li access-level="accessLevels.admin" active-nav="active-nav"><a href="/admin">Admin</a></li>
-				<li access-level="accessLevels.user"><a href="" ng-click="logout()">Log out</a></li>
+				<li access-level="accessLevels.anon" active-nav="active-nav"><a href="/login">登录</a></li>
+				<li access-level="accessLevels.admin" active-nav="active-nav"><a href="/register">注册</a></li>
+				<li access-level="accessLevels.user" active-nav="active-nav"><a href="/">主页</a></li>           
+				<li access-level="accessLevels.user" active-nav="active-nav"><a href="/jinliao">进料</a></li>
+                <li access-level="accessLevels.user" active-nav="active-nav"><a href="/chuzha">出渣口</a></li>
+                <li access-level="accessLevels.user" active-nav="active-nav"><a href="/yinfengji">引风机</a></li>
+                <li access-level="accessLevels.user" active-nav="active-nav"><a href="/shuibeng">水泵</a></li>
+                <li access-level="accessLevels.user" active-nav="active-nav"><a href="/wendu">温度检测</a></li>
+                <li access-level="accessLevels.user" active-nav="active-nav"><a href="/gufengji">鼓风机</a></li>               
+				<li access-level="accessLevels.admin" active-nav="active-nav"><a href="/admin">管理员</a></li>
+				<li access-level="accessLevels.user"><a href="" ng-click="logout()">登出</a></li>
 			  </ul>
+
+             
+
 			  <div id="userInfo" access-level="accessLevels.user" class="pull-right">Welcome&nbsp;<strong>{{ user.username }}&nbsp;</strong><span ng-class="{&quot;label-info&quot;: user.role.title == userRoles.user.title, &quot;label-success&quot;: user.role.title == userRoles.admin.title}" class="label">{{ user.role.title }}</span></div>
 			</div>
 		  </div>
 		</div>
 
 		<div class="container">
-		  <div ng-view="ng-view"></div>
-		  <div class="alert alert-error" ng-bind="error" ng-show="error"><div> 
+          <div class="row-fluid">
+             <div class="span2">
+                <ul class="nav nav-list">
+                     <li access-level="accessLevels.user" active-nav="active-nav"><a href="/jinliao">进料</a></li>
+                     <li access-level="accessLevels.user" active-nav="active-nav"><a href="/chuzha">出渣口</a></li>
+                     <li access-level="accessLevels.user" active-nav="active-nav"><a href="/yinfengji">引风机</a></li>
+                     <li access-level="accessLevels.user" active-nav="active-nav"><a href="/shuibeng">水泵</a></li>
+                     <li access-level="accessLevels.user" active-nav="active-nav"><a href="/wendu">温度检测</a></li>
+                     <li access-level="accessLevels.user" active-nav="active-nav"><a href="/gufengji">鼓风机</a></li>               
+                 </ul>
+             </div>
+
+            <div class="span10">
+                 <div ng-view="ng-view"></div>
+                 <div class="alert alert-error" ng-bind="error" ng-show="error"><div> 
+            </div>
+          </div>		  
 		</div>
+    </div>    
 
     <script src="/lib/underscore-min.js"></script>
     <script src="/lib/angular/angular.min.js"></script>

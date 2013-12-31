@@ -90,3 +90,7 @@ angular.module('angular-client-side-auth')
 
 }]);
 
+angular.module('angular-client-side-auth')
+.controller('JinliaoCtrl',
+['$rootScope', function($rootScope) {
+}]);

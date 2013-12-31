@@ -30,6 +30,13 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ngRoute'])
             controller:     'PrivateCtrl',
             access:         access.user
         });
+    $routeProvider.when('/jinliao',
+        {
+            templateUrl:    '/partials/private2.html',
+            controller:     'JinliaoCtrl',
+            access:         access.user
+        });
+   
     $routeProvider.when('/admin',
         {
             templateUrl:    '/partials/admin.html',
