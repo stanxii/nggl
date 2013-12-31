@@ -76,7 +76,7 @@ angular.module('angular-client-side-auth')
 
 angular.module('angular-client-side-auth')
 .controller('AdminCtrl',
-['$rootScope', '$scope', 'Users', 'Auth', function($rootScope, $scope, Users, Auth) {
+['$rootScope', , 'Users', 'Auth', function($rootScope, $scope, Users, Auth) {
     $scope.loading = true;
     $scope.userRoles = Auth.userRoles;
 
@@ -93,4 +93,23 @@ angular.module('angular-client-side-auth')
 angular.module('angular-client-side-auth')
 .controller('JinliaoCtrl',
 ['$rootScope', function($rootScope) {
+}]);
+
+angular.module('angular-client-side-auth')
+.controller('ChuzhaCtrl',
+['$rootScope', function($rootScope) {
+}]);
+
+angular.module('angular-client-side-auth')
+.controller('YinfengjiCtrl',
+['$rootScope', '$scope', function($rootScope, $scope) {
+   $scope.value1 = 42;
+   $scope.value2 = 68;
+
+    setInterval(function(){
+        $scope.$apply(function() {
+            $scope.value1 = getRandomInt(10, 90);
+            $scope.value2 = getRandomInt(1, 99);
+        });
+    }, 1000);
 }]);

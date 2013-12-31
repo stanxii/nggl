@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-client-side-auth', ['ngCookies', 'ngRoute'])
+angular.module('angular-client-side-auth', ['ngCookies', 'ngRoute', 'ngJustGage'])
 
     .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
 
@@ -32,11 +32,22 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ngRoute'])
         });
     $routeProvider.when('/jinliao',
         {
-            templateUrl:    '/partials/private2.html',
+            templateUrl:    '/partials/private.jinliao.html',
             controller:     'JinliaoCtrl',
             access:         access.user
         });
-   
+    $routeProvider.when('/chuzha',
+        {
+            templateUrl:    '/partials/private.chuzha.html',
+            controller:     'ChuzhaCtrl',
+            access:         access.user
+        });
+    $routeProvider.when('/yinfengji',
+        {
+            templateUrl:    '/partials/private.yinfengji.html',
+            controller:     'YinfengjiCtrl',
+            access:         access.user
+        });   
     $routeProvider.when('/admin',
         {
             templateUrl:    '/partials/admin.html',

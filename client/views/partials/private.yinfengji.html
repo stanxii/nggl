@@ -1,0 +1,39 @@
+<div class="row-fluid">
+    <div class="span4">
+      <!--Sidebar content-->         
+            <img class="lazy" ng-src="/img/stickup.png" width="400" height="150" />                      
+    </div>
+    <div class="span8">
+      <!--Body content-->
+        <h3 style="color: #428bca;"> 
+                引风机 控制, 按下按钮亮绿灯，推杆进推,表示开启引风机。再次按下推杆，按钮变灰，关闭引风机完成!</small>
+        </h3>
+                             
+        <button class="btn btn-large btn-primary" ng-click="jinliaoAction(1)">开启引风机 </button>                             
+        <button class="btn btn-large btn-primary" ng-click="jinliaoAction(2)">关闭引风机 </button>
+    </div>
+</div>   
+<div class="row-fluid">
+     <div class="span6"  >
+              <h3 style="color: #428bca;">
+                引风机.频率<br><small>通过传感器探测，并实时显示引风机的频率!,单位赫兹(Hz)</small>
+              </h3>
+              <p >
+                 <div style="width:300px; height:200px;">
+                    <just-gage-dynamic id="test1" value="value1" min=0 max=100 title="引风机实时文档" label="temperature"></just-gage-dynamic>
+                 </div>
+
+              </p>
+       </div>
+
+        <div class="span6">
+              <h3 style="color: #428bca;">
+                引风机.电流<br><small>{{chuzhaAction1}}通过传感器探测，比实时显示引风机当前的电流，单位安培(A)!</small>
+              </h3>
+              <p >
+                 <div style="width:300px; height:200px;">
+                    <just-gage-dynamic id="test2" value="value2" min=0 max=100 title="引风机实时文档" label="temperature"></just-gage-dynamic>
+                 </div>
+              </p>
+       </div>
+</div>
