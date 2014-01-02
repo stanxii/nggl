@@ -115,14 +115,36 @@ angular.module('angular-client-side-auth')
 }]);
 
 angular.module('angular-client-side-auth')
+.controller('ShuibengCtrl',
+['$rootScope', function($rootScope) {
+}]);
+
+
+angular.module('angular-client-side-auth')
 .controller('WenduCtrl',
 ['$rootScope', '$scope', function($rootScope, $scope) {
-   $scope.wendu-lutang = 42;  
+   $scope.lutang = 32;  
+   $scope.lukou = 34;  
+   $scope.ranshi2ru = 38;  
+   $scope.ranshi2chu = 42;  
+   $scope.budairu = 44;  
+   $scope.budaichu = 50;  
 
     setInterval(function(){
         $scope.$apply(function() {
-            $scope.wendu-lutang = getRandomInt(10, 90);
+        $scope.lutang = getRandomInt(10, 90);
+        $scope.lukou = getRandomInt(10, 90);
+        $scope.ranshi2ru = getRandomInt(10, 90);
+        $scope.ranshi2chu = getRandomInt(10, 90);
+        $scope.budairu = getRandomInt(10, 90);
+        $scope.budaichu = getRandomInt(10, 90);
+
            
         });
     }, 1000);
+}]);
+
+angular.module('angular-client-side-auth')
+.controller('GufengjiCtrl',
+['$rootScope', function($rootScope) {
 }]);
