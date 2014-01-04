@@ -122,7 +122,8 @@ angular.module('angular-client-side-auth')
 
 angular.module('angular-client-side-auth')
 .controller('WenduCtrl',
-['$rootScope', '$scope', 'socket', function($rootScope, $scope, socket) {
+[            '$rootScope', '$scope', 'socket', 
+     function($rootScope, $scope, socket) {
 
 
     socket.on('init', function (data) {
