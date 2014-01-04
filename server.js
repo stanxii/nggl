@@ -64,12 +64,14 @@ server.on("error", function (err) {
   server.close();
 });
 
-server.on("message", function (msg, rinfo) {
-  console.log("server got: " + msg + " from " +
+server.on("message", function (data, rinfo) {
+  console.log("server got: " + data + " from " +
     rinfo.address + ":" + rinfo.port);
 
-    var data = '{"cmd" : "alarm", "template": 35}'
-    io.sockets.emit('send:alarm',data);
+    var msg = data.toString();
+    console.log('msg=' + msg);
+   
+    io.sockets.emit('send:alarm',JSON.parse(msg));
 
 });
 

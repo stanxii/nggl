@@ -134,6 +134,10 @@ angular.module('angular-client-side-auth')
         console.log(data);
         $scope.lutang = data.template;
         $scope.lukou = data.template;
+        $scope.ranshi2ru = data.template;
+        $scope.ranshi2chu = data.template;
+        $scope.budairu = data.template;
+        $scope.budaichu = data.template;
     });
 
    $scope.lutang = 32;  
@@ -143,6 +147,7 @@ angular.module('angular-client-side-auth')
    $scope.budairu = 44;  
    $scope.budaichu = 50;  
 
+   /*
     setInterval(function(){
         $scope.$apply(function() {
         $scope.lutang = getRandomInt(10, 90);
@@ -155,6 +160,8 @@ angular.module('angular-client-side-auth')
            
         });
     }, 1000);
+
+    */
 }]);
 
 angular.module('angular-client-side-auth')
