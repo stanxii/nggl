@@ -122,7 +122,20 @@ angular.module('angular-client-side-auth')
 
 angular.module('angular-client-side-auth')
 .controller('WenduCtrl',
-['$rootScope', '$scope', function($rootScope, $scope) {
+['$rootScope', '$scope', 'socket', function($rootScope, $scope, socket) {
+
+
+    socket.on('init', function (data) {
+        $scope.lutang = data.name;
+        $scope.users = data.users;
+     });
+
+    socket.on('send:alarm', function (data) {
+        console.log(data);
+        $scope.lutang = data.template;
+        $scope.lukou = data.template;
+    });
+
    $scope.lutang = 32;  
    $scope.lukou = 34;  
    $scope.ranshi2ru = 38;  

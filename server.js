@@ -4,6 +4,9 @@ var express =       require('express')
     , passport =    require('passport')
     , path =        require('path')
     , User =        require('./server/models/User.js');
+var socketioservice = require('./server/routes/socketio.js');
+
+
 
 var app = module.exports = express();
 // assign the swig engine to .html files
@@ -40,6 +43,41 @@ passport.deserializeUser(User.deserializeUser);
 require('./server/routes.js')(app);
 
 app.set('port', process.env.PORT || 8000);
-http.createServer(app).listen(app.get('port'), function(){
+
+var hserver = http.createServer(app);
+
+hserver.listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
 });
+
+var io = require('socket.io').listen(hserver);
+
+io.sockets.on('connection', socketioservice.socketioservice);
+
+//create udp server
+var dgram = require("dgram");
+
+var server = dgram.createSocket("udp4");
+
+server.on("error", function (err) {
+  console.log("server error:\n" + err.stack);
+  server.close();
+});
+
+server.on("message", function (msg, rinfo) {
+  console.log("server got: " + msg + " from " +
+    rinfo.address + ":" + rinfo.port);
+
+    var data = '{"cmd" : "alarm", "template": 35}'
+    io.sockets.emit('send:alarm',data);
+
+});
+
+server.on("listening", function () {
+  var address = server.address();
+  console.log("server listening " +
+      address.address + ":" + address.port);
+});
+
+server.bind(12345);
+// server listening 0.0.0.0:41234
