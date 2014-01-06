@@ -132,13 +132,23 @@ angular.module('angular-client-side-auth')
      });
 
     socket.on('send:alarm', function (data) {
-        console.log(data);
-        $scope.lutang = data.template;
-        $scope.lukou = data.template;
-        $scope.ranshi2ru = data.template;
-        $scope.ranshi2chu = data.template;
-        $scope.budairu = data.template;
-        $scope.budaichu = data.template;
+        console.log("recive alarm" + data);
+        $scope.lutang = data.temp;
+        $scope.lukou = data.temp;
+        $scope.ranshi2ru = data.temp;
+        $scope.ranshi2chu = data.temp;
+        $scope.budairu = data.temp;
+        $scope.budaichu = data.temp;
+    });
+
+    socket.on('send:trap', function (data) {
+        console.log("receive trap" + data);
+        $scope.lutang = data.temp;
+        $scope.lukou = data.temp;
+        $scope.ranshi2ru = data.temp;
+        $scope.ranshi2chu = data.temp;
+        $scope.budairu = data.temp;
+        $scope.budaichu = data.temp;
     });
 
    $scope.lutang = 32;  
