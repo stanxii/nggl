@@ -92,17 +92,34 @@ angular.module('angular-client-side-auth')
 
 angular.module('angular-client-side-auth')
 .controller('JinliaoCtrl',
-['$rootScope', function($rootScope) {
+[        '$rootScope', '$scope', 'socket', 
+function($rootScope, $scope, socket) {
+    $scope.jinliaoAction = function(action) {
+        var jsondata = '{"cmd":"jinliao", "action":"' + action + '"}';
+        socket.emit('send:jinliao' , jsondata);
+    }
 }]);
 
 angular.module('angular-client-side-auth')
 .controller('ChuzhaCtrl',
-['$rootScope', function($rootScope) {
+[        '$rootScope', '$scope', 'socket', 
+function($rootScope, $scope, socket) {
+    $scope.chuzhaAction = function(action) {
+        var jsondata = '{"cmd":"chuzha", "action":"' + action + '"}';
+        socket.emit('send:chuzha' , jsondata);
+    }
 }]);
 
 angular.module('angular-client-side-auth')
 .controller('YinfengjiCtrl',
-['$rootScope', '$scope', function($rootScope, $scope) {
+[        '$rootScope', '$scope', 'socket', 
+function($rootScope, $scope, socket) {
+   
+    $scope.yinfengjiAction = function(action) {
+        var jsondata = '{"cmd":"yinfengji", "action":"' + action + '"}';
+        socket.emit('send:yinfengji' , jsondata);
+    }
+
    $scope.value1 = 42;
    $scope.value2 = 68;
 
@@ -116,7 +133,12 @@ angular.module('angular-client-side-auth')
 
 angular.module('angular-client-side-auth')
 .controller('ShuibengCtrl',
-['$rootScope', function($rootScope) {
+[   '$rootScope', '$scope', 'socket', 
+function($rootScope, $scope, socket) {
+    $scope.shuibengAction = function(action) {
+        var jsondata = '{"cmd":"shuibeng", "action":"' + action + '"}';
+        socket.emit('send:shuibeng' , jsondata);
+    }
 }]);
 
 
@@ -177,5 +199,10 @@ angular.module('angular-client-side-auth')
 
 angular.module('angular-client-side-auth')
 .controller('GufengjiCtrl',
-['$rootScope', function($rootScope) {
+[   '$rootScope', '$scope', 'socket', 
+function($rootScope, $scope, socket) {
+    $scope.gufengjiAction = function(action) {
+        var jsondata = '{"cmd":"gufengji", "action":"' + action + '"}';
+        socket.emit('send:gufengji' , jsondata);
+    }
 }]);
