@@ -94,8 +94,17 @@ angular.module('angular-client-side-auth')
 .controller('JinliaoCtrl',
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
+    $scope.myvalid = false;
+
     $scope.jinliaoAction = function(action) {
-        var jsondata = '{"cmd":"jinliao", "action":"' + action + '"}';
+            
+        console.log("now myvalidis true");
+        
+        $scope.myvalid=function(e){               
+               return false;
+       };
+
+        var jsondata = '{"cmd":"jinliao","action":"' + action + '"}';
         socket.emit('send:jinliao' , jsondata);
     }
 }]);
@@ -105,7 +114,7 @@ angular.module('angular-client-side-auth')
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
     $scope.chuzhaAction = function(action) {
-        var jsondata = '{"cmd":"chuzha", "action":"' + action + '"}';
+        var jsondata = '{"cmd":"chuzha","action":"' + action + '"}';
         socket.emit('send:chuzha' , jsondata);
     }
 }]);
@@ -116,7 +125,7 @@ angular.module('angular-client-side-auth')
 function($rootScope, $scope, socket) {
    
     $scope.yinfengjiAction = function(action) {
-        var jsondata = '{"cmd":"yinfengji", "action":"' + action + '"}';
+        var jsondata = '{"cmd":"yinfengji","action":"' + action + '"}';
         socket.emit('send:yinfengji' , jsondata);
     }
 
@@ -136,7 +145,7 @@ angular.module('angular-client-side-auth')
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
     $scope.shuibengAction = function(action) {
-        var jsondata = '{"cmd":"shuibeng", "action":"' + action + '"}';
+        var jsondata = '{"cmd":"shuibeng","action":"' + action + '"}';
         socket.emit('send:shuibeng' , jsondata);
     }
 }]);
@@ -147,12 +156,44 @@ angular.module('angular-client-side-auth')
 [            '$rootScope', '$scope', 'socket', 
      function($rootScope, $scope, socket) {
 
+    $scope.lutang = 32;  
+   $scope.lukou = 34;  
+   $scope.ranshi2ru = 38;  
+   $scope.ranshi2chu = 42;  
+   $scope.budairu = 44;  
+   $scope.budaichu = 50; 
 
     socket.on('init', function (data) {
         $scope.lutang = data.name;
         $scope.users = data.users;
      });
 
+    socket.on('send:lutang', function (data) {
+         console.log("recive lutang" + data);
+         $scope.lutang = data.temp;
+    });
+    socket.on('send:lukou', function (data) {
+         console.log("recive lukou" + data);
+         $scope.lukou = data.temp;
+    });
+    socket.on('send:ranshi2ru', function (data) {
+         console.log("recive ranshi2ru" + data);
+         $scope.ranshi2ru = data.temp;
+    });
+    socket.on('send:ranshi2chu', function (data) {
+         console.log("recive ranshi2chu" + data);
+         $scope.ranshi2chu = data.temp;
+    });
+    socket.on('send:budairu', function (data) {
+         console.log("recive budairu" + data);
+         $scope.budairu = data.temp;
+    });
+    socket.on('send:budaichu', function (data) {
+         console.log("recive budaichu" + data);
+         $scope.budaichu = data.temp;
+    });
+
+/*
     socket.on('send:alarm', function (data) {
         console.log("recive alarm" + data);
         $scope.lutang = data.temp;
@@ -172,13 +213,9 @@ angular.module('angular-client-side-auth')
         $scope.budairu = data.temp;
         $scope.budaichu = data.temp;
     });
+*/
 
-   $scope.lutang = 32;  
-   $scope.lukou = 34;  
-   $scope.ranshi2ru = 38;  
-   $scope.ranshi2chu = 42;  
-   $scope.budairu = 44;  
-   $scope.budaichu = 50;  
+   
 
    /*
     setInterval(function(){
@@ -202,7 +239,7 @@ angular.module('angular-client-side-auth')
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
     $scope.gufengjiAction = function(action) {
-        var jsondata = '{"cmd":"gufengji", "action":"' + action + '"}';
+        var jsondata = '{"cmd":"gufengji","action":"' + action + '"}';
         socket.emit('send:gufengji' , jsondata);
     }
 }]);

@@ -1,4 +1,13 @@
 
+var doWorkingData = function(io,jsondata){
+	if( jsondata.cmd == "trap"){
+		console.log("fucking.....data="+jsondata);
+		io.sockets.emit('send:lutang', jsondata);
+	}
+	else if(jsondata.cmd == "alarm"){
+			//alarm
+	}
+}
 
 
 module.exports = function(io) {
@@ -19,8 +28,34 @@ module.exports = function(io) {
 
 		var msg = data.toString();
 		console.log('msg=' + msg);
+		var jsondata = JSON.parse(msg);
+		//for test
+
+		//io.sockets.emit('send:alarm',jsondata);
+
+					
+		switch(rinfo.address){
+			case "192.168.1.168":
+				doWorkingData(io, jsondata);
+
+				break;
+			case "192.168.1.169":
+				io.sockets.emit('send:lukou',JSON.parse(msg));
+				break;
+			case "192.168.1.170":
+				io.sockets.emit('send:ranshi2ru',JSON.parse(msg));
+				break;
+			case "192.168.1.171":
+				io.sockets.emit('send:ranshi2chu',JSON.parse(msg));
+				break;
+			case "192.168.1.172":
+				io.sockets.emit('send:budairu',JSON.parse(msg));
+				break;
+			case "192.168.1.173":
+				io.sockets.emit('send:budaichu',JSON.parse(msg));
+				break;				
+		}
 		
-		io.sockets.emit('send:alarm',JSON.parse(msg));
 
 	});
 
