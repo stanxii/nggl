@@ -1,11 +1,39 @@
 
+var MongoClient = require('mongodb').MongoClient
+    , format = require('util').format;
+
+var doMongodbOpt = function(jsondata) {
+	MongoClient.connect('mongodb://127.0.0.1:27017/huanbao', function(err, db) {
+    if(err) throw err;
+
+
+    var collection = db.collection('alarms');
+    collection.insert(jsondata, function(err, docs) {
+
+      collection.count(function(err, count) {
+        console.log(format("count = %s", count));
+      });
+
+      // Locate all the entries using find
+      collection.find().toArray(function(err, results) {
+        console.dir(results);
+        // Let's close the db
+        db.close();
+      });
+    });
+  })
+}
+
+
 var doWorkingData = function(io,jsondata){
 	if( jsondata.cmd == "trap"){
 		console.log("fucking.....data="+jsondata);
 		io.sockets.emit('send:lutang', jsondata);
 	}
 	else if(jsondata.cmd == "alarm"){
-			//alarm
+			//alarm will save to redis and es
+			console.log("fuck.......mongo")
+;			doMongodbOpt(jsondata);
 	}
 }
 
@@ -30,7 +58,7 @@ module.exports = function(io) {
 		console.log('msg=' + msg);
 		var jsondata = JSON.parse(msg);
 		//for test
-
+		doWorkingData(io, jsondata);
 		//io.sockets.emit('send:alarm',jsondata);
 
 					
