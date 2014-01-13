@@ -60,12 +60,24 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ngRoute', 'ngJustGage'
             controller:     'WenduCtrl',
             access:         access.user
         });
-    $routeProvider.when('/gufengji',
+     $routeProvider.when('/gufengji',
         {
             templateUrl:    '/partials/private.gufengji.html',
             controller:     'GufengjiCtrl',
             access:         access.user
-        });      
+        });   
+    $routeProvider.when('/globalconfig',
+        {
+            templateUrl:    '/partials/private.config.html',
+            controller:     'GlobalconfigCtrl',
+            access:         access.user
+        });   
+    $routeProvider.when('/alarms',
+        {
+            templateUrl:    '/partials/private.alarms.html',
+            controller:     'AlarmsCtrl',
+            access:         access.user
+        });   
     $routeProvider.when('/admin',
         {
             templateUrl:    '/partials/admin.html',
@@ -98,6 +110,11 @@ angular.module('angular-client-side-auth', ['ngCookies', 'ngRoute', 'ngJustGage'
 }])
 
     .run(['$rootScope', '$location', '$http', 'Auth', function ($rootScope, $location, $http, Auth) {    
+        $rootScope.accessors = {
+            getId: function(row) {
+            return row._id
+            }
+        }
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             $rootScope.error = null;
 			 console.log('next access' + next.access.bitMask);

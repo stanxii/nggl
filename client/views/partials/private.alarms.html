@@ -1,0 +1,35 @@
+<div class="row-fluid">
+    搜索: 
+     <form novalidate class="css-form">
+        Name:
+          <input type="text" ng-model="user.name" required /><br />
+        E-mail: <input type="email" ng-model="user.email" required /><br />
+        Gender: <input type="radio" ng-model="user.gender" value="male" />male
+        <input type="radio" ng-model="user.gender" value="female" />female<br />
+        <button ng-click="reset()">RESET</button>
+        <button ng-click="search(user)">SAVE</button>
+      </form>
+
+    历史告警
+    过滤: <input ng-model="query">
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="alarmTime">告警时间</option>
+        <option value="temp">温度</option>
+        <option value="level">告警基本</option>
+      </select>
+
+    <ul class="alarms">
+        <li ng-repeat="alarm in alarms | filter:query | orderBy:orderProp"
+            class="alarm-item">
+         <!-- <a href="#/alarms/{{alarm._id}}" class="thumb"><img ng-src="{{alarm.imageUrl}}"></a>  
+          <a href="#/alarms/{{alarm._id}}">{{alarm.temp}}</a>  -->
+          <!-- <span>{{accessors.getId(alarm)}}</span> -->
+          <span class="cmd">{{alarm.cmd}}</span>
+          <span class="temp">{{alarm.temp}}</span>
+          <span class="level">{{alarm.level}}</span>
+          <span class="alarmtime">{{alarm.alarmtime}}</span>
+        </li>
+      </ul>
+</div>    
+

@@ -1,11 +1,11 @@
 
-var alarms = require('../ioservices/alarms/alarms.js');
+var alarms = require('../ioservices/alarms/alarms.action.js');
 var actions = require('../ioservices/actions/actions.js');
 
 
 exports.socketioservice = function(socket) {
 
-        alarms.alarms(socket);
+        alarms.alarmsAction(socket);
         actions.actions(socket);
 };
 

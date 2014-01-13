@@ -243,3 +243,38 @@ function($rootScope, $scope, socket) {
         socket.emit('send:gufengji' , jsondata);
     }
 }]);
+
+angular.module('angular-client-side-auth')
+.controller('GlobalconfigCtrl',
+[   '$rootScope', '$scope', 'socket', 
+function($rootScope, $scope, socket) {
+    $scope.globalconfigAction = function(action) {
+        var jsondata = '{"cmd":"config","action":"' + action + '"}';
+        socket.emit('send:config' , jsondata);
+    }
+}]);
+
+angular.module('angular-client-side-auth')
+.controller('AlarmsCtrl',
+[   '$rootScope', '$scope', 'socket', 
+function($rootScope, $scope, socket) {
+    //init history alarm
+
+    //var jsondata = '{"_id":"gufengji","action":"' + action + '"}';
+    var jsondata = '{"level: "high"}';
+
+    socket.emit('send:alarms.list' , jsondata);
+
+    //for list 
+    $scope.AlarmsAction = function(action) {
+        var jsondata = '{"cmd":"alarms.list","action":"' + action + '"}';
+        socket.emit('send:alarms.list' , jsondata);
+    }
+
+    socket.on('send:alarms.list.res', function (data) {
+         console.log("send:alarms.list.res alarms list" + JSON.stringify(data));
+         $scope.alarms = data;
+    });
+}]);
+
+

@@ -1,4 +1,7 @@
 
+var dateFormat = require('dateformat');
+
+
 var MongoClient = require('mongodb').MongoClient
     , format = require('util').format;
 
@@ -6,9 +9,15 @@ var doMongodbOpt = function(jsondata) {
 	MongoClient.connect('mongodb://127.0.0.1:27017/huanbao', function(err, db) {
     if(err) throw err;
 
+	
+	
+    var now = new Date();
+	
+
+    jsondata.alarmtime = dateFormat(now, "isoDateTime");    
 
     var collection = db.collection('alarms');
-    collection.insert(jsondata, function(err, docs) {
+    collection.insert(jsondata, {w:1}, function(err, docs) {
 
       collection.count(function(err, count) {
         console.log(format("count = %s", count));
@@ -54,9 +63,12 @@ module.exports = function(io) {
 		console.log("server got: " + data + " from " +
 			rinfo.address + ":" + rinfo.port);
 
+
 		var msg = data.toString();
 		console.log('msg=' + msg);
 		var jsondata = JSON.parse(msg);
+
+		jsondata.ip = rinfo.address;
 		//for test
 		doWorkingData(io, jsondata);
 		//io.sockets.emit('send:alarm',jsondata);
