@@ -1,25 +1,25 @@
 <div class="row-fluid">
-      搜索告警: 
+      <h3><strong>搜索告警</strong></h3>
       <form novalidate class="css-form">
-        告警时间从:
-          <input type="datepicker" ng-model="salarm.start" required />
+        告警时间从:          
+          <datepicker ng-model='startdate' required></datepicker>
         到: 
-          <input type="datepicker" ng-model="salarm.end" required /><br />
+          <datepicker ng-model='enddate' required></datepicker>          
         并且告警温度大于:
-        <input type="text" ng-model="salarm.temp" /><br />
+        <input type="text" ng-model="salarm.temp" />
         告警级别等于:
-        <select ng-model="salarm.level">
-          <option value="high">告警时间</option>
-          <option value="low">温度</option>          
+        <select ng-model="slevel">
+          <option value="high">high</option>
+          <option value="low">low</option>          
         </select>        
-        <button ng-click="search(salarm)">搜索告警</button>
+        <button type="button" class="btn btn-primary" ng-click="search(salarm)">搜索</button>
       </form>
 
     <hr class="hr1" />
     在结果中过滤: <input ng-model="query">
       Sort by:
       <select ng-model="orderProp">
-        <option value="alarmTime">告警时间</option>
+        <option value="alarmtime">告警时间</option>
         <option value="temp">温度</option>
         <option value="level">告警级别</option>
       </select>
