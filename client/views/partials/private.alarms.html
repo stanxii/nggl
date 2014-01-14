@@ -1,22 +1,27 @@
 <div class="row-fluid">
-    搜索: 
-     <form novalidate class="css-form">
-        Name:
-          <input type="text" ng-model="user.name" required /><br />
-        E-mail: <input type="email" ng-model="user.email" required /><br />
-        Gender: <input type="radio" ng-model="user.gender" value="male" />male
-        <input type="radio" ng-model="user.gender" value="female" />female<br />
-        <button ng-click="reset()">RESET</button>
-        <button ng-click="search(user)">SAVE</button>
+      搜索告警: 
+      <form novalidate class="css-form">
+        告警时间从:
+          <input type="datepicker" ng-model="salarm.start" required />
+        到: 
+          <input type="datepicker" ng-model="salarm.end" required /><br />
+        并且告警温度大于:
+        <input type="text" ng-model="salarm.temp" /><br />
+        告警级别等于:
+        <select ng-model="salarm.level">
+          <option value="high">告警时间</option>
+          <option value="low">温度</option>          
+        </select>        
+        <button ng-click="search(salarm)">搜索告警</button>
       </form>
 
-    历史告警
-    过滤: <input ng-model="query">
+    <hr class="hr1" />
+    在结果中过滤: <input ng-model="query">
       Sort by:
       <select ng-model="orderProp">
         <option value="alarmTime">告警时间</option>
         <option value="temp">温度</option>
-        <option value="level">告警基本</option>
+        <option value="level">告警级别</option>
       </select>
 
     <ul class="alarms">
@@ -25,10 +30,13 @@
          <!-- <a href="#/alarms/{{alarm._id}}" class="thumb"><img ng-src="{{alarm.imageUrl}}"></a>  
           <a href="#/alarms/{{alarm._id}}">{{alarm.temp}}</a>  -->
           <!-- <span>{{accessors.getId(alarm)}}</span> -->
-          <span class="cmd">{{alarm.cmd}}</span>
-          <span class="temp">{{alarm.temp}}</span>
-          <span class="level">{{alarm.level}}</span>
-          <span class="alarmtime">{{alarm.alarmtime}}</span>
+          
+          <span class="fa-hover col-md-3 col-sm-4"><i class="fa fa-envelope fa-2x"></i> 告警信息</span>
+
+          类型<span class="cmd">{{alarm.cmd}}</span>
+          温度<span class="temp">{{alarm.temp}}</span>
+          级别<span class="level">{{alarm.level}}</span>
+          时间<span class="alarmtime">{{alarm.alarmtime}}</span>
         </li>
       </ul>
 </div>    

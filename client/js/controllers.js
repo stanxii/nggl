@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('NavCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     $scope.user = Auth.user;
     $scope.userRoles = Auth.userRoles;
@@ -17,7 +17,7 @@ angular.module('angular-client-side-auth')
     };
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('LoginCtrl',
 ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
 
@@ -41,13 +41,13 @@ angular.module('angular-client-side-auth')
     };
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('HomeCtrl',
 ['$rootScope', function($rootScope) {
 
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('RegisterCtrl',
 ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     $scope.role = Auth.userRoles.user;
@@ -68,13 +68,13 @@ angular.module('angular-client-side-auth')
     };
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('PrivateCtrl',
 ['$rootScope', function($rootScope) {
 }]);
 
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('AdminCtrl',
 ['$rootScope', , 'Users', 'Auth', function($rootScope, $scope, Users, Auth) {
     $scope.loading = true;
@@ -90,7 +90,7 @@ angular.module('angular-client-side-auth')
 
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('JinliaoCtrl',
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
@@ -109,7 +109,7 @@ function($rootScope, $scope, socket) {
     }
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('ChuzhaCtrl',
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
@@ -119,7 +119,7 @@ function($rootScope, $scope, socket) {
     }
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('YinfengjiCtrl',
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
@@ -140,7 +140,7 @@ function($rootScope, $scope, socket) {
     }, 1000);
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('ShuibengCtrl',
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
@@ -151,7 +151,7 @@ function($rootScope, $scope, socket) {
 }]);
 
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('WenduCtrl',
 [            '$rootScope', '$scope', 'socket', 
      function($rootScope, $scope, socket) {
@@ -234,7 +234,7 @@ angular.module('angular-client-side-auth')
     */
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('GufengjiCtrl',
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
@@ -244,7 +244,7 @@ function($rootScope, $scope, socket) {
     }
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('GlobalconfigCtrl',
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
@@ -254,7 +254,7 @@ function($rootScope, $scope, socket) {
     }
 }]);
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .controller('AlarmsCtrl',
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
@@ -266,8 +266,10 @@ function($rootScope, $scope, socket) {
     socket.emit('send:alarms.list' , jsondata);
 
     //for list 
-    $scope.AlarmsAction = function(action) {
+    $scope.search = function(action) {
         var jsondata = '{"cmd":"alarms.list","action":"' + action + '"}';
+
+        jsondata = $scope.salarm;
         socket.emit('send:alarms.list' , jsondata);
     }
 

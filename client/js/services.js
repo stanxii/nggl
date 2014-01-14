@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .factory('Auth', function($http, $cookieStore){
 
     var accessLevels = routingConfig.accessLevels
@@ -52,7 +52,7 @@ angular.module('angular-client-side-auth')
     };
 });
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .factory('Users', function($http) {
     return {
         getAll: function(success, error) {
@@ -61,7 +61,7 @@ angular.module('angular-client-side-auth')
     };
 });
 
-angular.module('angular-client-side-auth')
+angular.module('nggl')
 .factory('socket', function ($rootScope) {
   var socket = io.connect();
   return {

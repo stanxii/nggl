@@ -61,20 +61,27 @@ body {
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
 }
 
-li.alarm-item {
+.alarm-item {
     list-style: none;
     margin-top: 10px;
     padding-bottom: 20px;
     clear: both;   
     font: 20px "Helvetica Neue",Helvetica,Arial,sans-serif;
     background:#FC9; 
-    border-radius:5px
+    border-radius:5px;
+   
 }
 .temp {
-    background-color: red;
+    
+}
+
+.hr1 {
+    height: 1px;
+    border: none;
+    border-top: 1px solid #555555;
 }
 
 li > span {
-    margin-left: 20px;
+    margin-left: 8  0px;
 }
 ///////alarm end

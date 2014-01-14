@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="angular-client-side-auth">
+<html lang="en" ng-app="nggl">
 <head>
     <meta charset="utf-8">
-    <title>Angular Auth Example</title>
+    <title>Huan Bao Network Manager System</title>
     <link rel="stylesheet" href="css/app.css">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+    <link href="/lib/bootstrap3.03/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="/lib/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet"> -->
+
     <!-- This is needed because Facebook login redirects add #_=_ at the end of the URL-->
     <script type="text/javascript">
       if (window.location.href.indexOf('#_=_') > 0) {
@@ -17,10 +24,10 @@
 <body ng-cloak>
 
     <div ng-controller="NavCtrl">
-		<div  class="navbar navbar-inverse">
-		  <div class="navbar-inner">
-			<div class="container-fluid">
-			  <ul class="nav">
+		<div  class="navbar navbar-inverse" role="navigation">
+	
+			
+			  <ul class="nav navbar-nav">
 				<li access-level="accessLevels.anon" active-nav="active-nav"><a href="/login">登录</a></li>
 				<li access-level="accessLevels.admin" active-nav="active-nav"><a href="/register">注册</a></li>
 				<li access-level="accessLevels.user" active-nav="active-nav"><a href="/">主页</a></li>           
@@ -39,13 +46,13 @@
              
 
 			  <div id="userInfo" access-level="accessLevels.user" class="pull-right">Welcome&nbsp;<strong>{{ user.username }}&nbsp;</strong><span ng-class="{&quot;label-info&quot;: user.role.title == userRoles.user.title, &quot;label-success&quot;: user.role.title == userRoles.admin.title}" class="label">{{ user.role.title }}</span></div>
-			</div>
-		  </div>
+		
+		
 		</div>
 
 		<div class="container">
-          <div class="row-fluid">
-             <div class="span2">
+          <div class="row">
+             <div class="col-md-2">
                 <ul class="nav nav-list">
                      <li access-level="accessLevels.user" active-nav="active-nav"><a href="/jinliao">进料</a></li>
                      <li access-level="accessLevels.user" active-nav="active-nav"><a href="/chuzha">出渣口</a></li>
@@ -56,7 +63,7 @@
                  </ul>
              </div>
 
-            <div class="span10">
+            <div class="col-md-10">
                  <div ng-view="ng-view"></div>
                  <div class="alert alert-error" ng-bind="error" ng-show="error"><div> 
             </div>
