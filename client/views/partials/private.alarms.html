@@ -1,10 +1,12 @@
-<div class="row-fluid">
+<div class="row">
       <h3><strong>搜索告警</strong></h3>
+      <strong>My Date:</strong> {{myDate | date:'medium'}}
       <form novalidate class="css-form">
         告警时间从:          
-          <datepicker ng-model='startdate' required></datepicker>
+          <input type="text" ng-model="v.sDt ">{{v.sDt | date:'yyyy-MM-dd HH:mm:ss Z'}}</input>
+          
         到: 
-          <datepicker ng-model='enddate' required></datepicker>          
+          
         并且告警温度大于:
         <input type="text" ng-model="salarm.temp" />
         告警级别等于:
@@ -32,7 +34,7 @@
           <!-- <span>{{accessors.getId(alarm)}}</span> -->
           
           <span class="fa-hover col-md-3 col-sm-4"><i class="fa fa-envelope fa-2x"></i> 告警信息</span>
-
+          <span class="ip">{{alarm.ip}}</span>
           类型<span class="cmd">{{alarm.cmd}}</span>
           温度<span class="temp">{{alarm.temp}}</span>
           级别<span class="level">{{alarm.level}}</span>

@@ -259,13 +259,20 @@ angular.module('nggl')
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
     //init history alarm
-    
-    
-    $scope.startdate = new Date(new Date()-24*60*60*1000);
-    $scope.enddate = new Date();
+    var s = new Date().toLocaleString ();
+
+    $scope.myDate = new Date();
+    //$scope.startdate = new Date(new Date()-24*60*60*1000);
+    //$scope.enddate = new Date();
     $scope.slevel = "high";
     $scope.orderProp="alarmtime";
+    //$scope.salarm.temp = 
 
+    $scope.v = {
+        Dt: Date.now(),
+        sDt: s,
+        DDt: Date.parse(s)
+    }
 
     //var jsondata = '{"_id":"gufengji","action":"' + action + '"}';
     var jsondata = '{"level: "high"}';

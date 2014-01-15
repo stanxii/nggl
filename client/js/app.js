@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('nggl', ['ngCookies', 'ngRoute', 'ngQuickDate', 'ngJustGage'])
-    .config(['$routeProvider', '$locationProvider', '$httpProvider', 'ngQuickDateDefaultsProvider', function ($routeProvider, $locationProvider, $httpProvider, ngQuickDateDefaultsProvider) {
+angular.module('nggl', ['ngCookies', 'ngRoute', 'ngJustGage'])
+    .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
 
     var access = routingConfig.accessLevels;
 
@@ -107,17 +107,7 @@ angular.module('nggl', ['ngCookies', 'ngRoute', 'ngQuickDate', 'ngJustGage'])
     });
 
 
-    return ngQuickDateDefaultsProvider.set({
-    closeButtonHtml: "<i class='fa fa-times'></i>",
-    buttonIconHtml: "<i class='fa fa-clock-o'></i>",
-    nextLinkHtml: "<i class='fa fa-chevron-right'></i>",
-    prevLinkHtml: "<i class='fa fa-chevron-left'></i>",
-    // Take advantage of Sugar.js date parsing
-    parseDateFunction: function(str) {
-      d = Date.create(str);
-      return d.isValid() ? d : null;
-    }
-  });
+    
 
 }])
 
