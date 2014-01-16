@@ -257,33 +257,31 @@ function($rootScope, $scope, socket) {
 angular.module('nggl')
 .controller('AlarmsCtrl',
 [   '$rootScope', '$scope', 'socket', 
-function($rootScope, $scope, socket) {
-    //init history alarm
-    var s = new Date().toLocaleString ();
+function($rootScope, $scope, socket) {   
 
-    $scope.myDate = new Date();
-    //$scope.startdate = new Date(new Date()-24*60*60*1000);
-    //$scope.enddate = new Date();
-    $scope.slevel = "high";
-    $scope.orderProp="alarmtime";
-    //$scope.salarm.temp = 
-
-    $scope.v = {
-        Dt: Date.now(),
-        sDt: s,
-        DDt: Date.parse(s)
-    }
+    $scope.salarm = {
+        //Dt: Date.now(),       
+        startdate: new Date(new Date()-24*60*60*1000),
+        enddate: new Date(),
+        level: "high",
+        temp: 200,
+        orderProp: "alarmtime",
+    };
 
     //var jsondata = '{"_id":"gufengji","action":"' + action + '"}';
-    var jsondata = '{"level: "high"}';
+    var jsondata = {"level": "high"};
 
     socket.emit('send:alarms.list' , jsondata);
 
     //for list 
-    $scope.search = function(action) {
-        var jsondata = '{"cmd":"alarms.list","action":"' + action + '"}';
+    $scope.search = function(salarm) {
+       var jsondata = {};
+       jsondata.startdate = salarm.startdate.getTime();
+       jsondata.enddate = salarm.enddate.getTime();
+       jsondata.level = salarm.level;      
+       jsondata.orderProp = salarm.orderProp;
 
-        jsondata = $scope.salarm;
+       console.log("Action == salarm=" + JSON.stringify(jsondata));
         socket.emit('send:alarms.list' , jsondata);
     }
 

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('nggl', ['ngCookies', 'ngRoute', 'ngJustGage'])
-    .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider) {
+angular.module('nggl', ['ngCookies', 'ngRoute', 'ngJustGage', 'ngDateTime'])
+    .config(['$routeProvider', '$locationProvider', '$httpProvider', function ($routeProvider, $locationProvider, $httpProvider, ngDateTime) {
 
     var access = routingConfig.accessLevels;
 

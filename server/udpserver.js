@@ -9,13 +9,9 @@ var doMongodbOpt = function(jsondata) {
 	MongoClient.connect('mongodb://127.0.0.1:27017/huanbao', function(err, db) {
     if(err) throw err;
 
+	//convert temp from string to number
+	jsondata.temp = Number(jsondata.temp);
 	
-	
-    var now = new Date();
-	
-
-    jsondata.alarmtime = dateFormat(now, "isoDateTime");    
-
     var collection = db.collection('alarms');
     collection.insert(jsondata, {w:1}, function(err, docs) {
 
@@ -69,9 +65,9 @@ module.exports = function(io) {
 		var jsondata = JSON.parse(msg);
 
 		jsondata.ip = rinfo.address;
-		//for test
-		doWorkingData(io, jsondata);
-		//io.sockets.emit('send:alarm',jsondata);
+		jsondata.alarmtime = new Date().getTime();
+		
+		console.log("Now change datetime=" + new Date(jsondata.alarmtime));
 
 					
 		switch(rinfo.address){

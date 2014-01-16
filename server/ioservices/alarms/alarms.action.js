@@ -11,12 +11,17 @@ var MongoClient = require('mongodb').MongoClient
 
 ///////////////////////////////////////case begin
         if(action == "list"){
-          //问一个问题
-          //jsondata.alarmtime = new Date().toLocaleString();
-          
-          collection.find()
+          //list the alarm whith condition json data  
+          // send:alarms.list rev:{"startdate":"1/14/2014 10:02:54 AM",
+          //"enddate":"1/15/2014 10:02:54 AM",
+          //"level": "high",
+          //"orederprop":"alarmtime"}  
+          var orederprop = jsondata.orederprop;      
+          collection.find({"alarmtime":{$gte:jsondata.startdate},
+            "alarmtime":{$lte: jsondata.enddate},             
+            "level": jsondata.level })
           .limit(100)
-          .sort({asktime: -1})
+          .sort({ orederprop : -1} )
           .toArray(function(err, results) {
           	if(err){
           		socket.emit('send:alarms.list.res', {"result": "failed"});            

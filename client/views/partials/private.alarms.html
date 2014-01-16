@@ -1,26 +1,29 @@
 <div class="row">
       <h3><strong>搜索告警</strong></h3>
-      <strong>My Date:</strong> {{myDate | date:'medium'}}
+
+
+
       <form novalidate class="css-form">
-        告警时间从:          
-          <input type="text" ng-model="v.sDt ">{{v.sDt | date:'yyyy-MM-dd HH:mm:ss Z'}}</input>
-          
-        到: 
-          
-        并且告警温度大于:
-        <input type="text" ng-model="salarm.temp" />
-        告警级别等于:
-        <select ng-model="slevel">
+
+        告警时间从:<ng-date-time model="salarm.startdate"></ng-date-time> 到：  <ng-date-time model="salarm.enddate"></ng-date-time>
+        <pre><code>起始时间 = {{ salarm.startdate | moment }}</code></pre>
+        <pre><code>终止时间 = {{ salarm.enddate | moment }}</code></pre>         
+        
+       
+       
+    salarm.   告警级别等于:
+        <select ng-model="salarm.level">
           <option value="high">high</option>
           <option value="low">low</option>          
-        </select>        
+        </select>  
+        <br/>      
         <button type="button" class="btn btn-primary" ng-click="search(salarm)">搜索</button>
       </form>
 
     <hr class="hr1" />
     在结果中过滤: <input ng-model="query">
       Sort by:
-      <select ng-model="orderProp">
+      <select ng-model="salarm.orderProp">
         <option value="alarmtime">告警时间</option>
         <option value="temp">温度</option>
         <option value="level">告警级别</option>
@@ -38,7 +41,7 @@
           类型<span class="cmd">{{alarm.cmd}}</span>
           温度<span class="temp">{{alarm.temp}}</span>
           级别<span class="level">{{alarm.level}}</span>
-          时间<span class="alarmtime">{{alarm.alarmtime}}</span>
+          时间<span class="alarmtime">{{alarm.alarmtime}})</span>
         </li>
       </ul>
 </div>    
