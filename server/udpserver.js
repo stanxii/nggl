@@ -1,5 +1,6 @@
 
-var dateFormat = require('dateformat');
+
+var moment = require('moment');
 
 
 var MongoClient = require('mongodb').MongoClient
@@ -11,7 +12,9 @@ var doMongodbOpt = function(jsondata) {
 
 	//convert temp from string to number
 	jsondata.temp = Number(jsondata.temp);
+
 	
+
     var collection = db.collection('alarms');
     collection.insert(jsondata, {w:1}, function(err, docs) {
 
@@ -65,7 +68,8 @@ module.exports = function(io) {
 		var jsondata = JSON.parse(msg);
 
 		jsondata.ip = rinfo.address;
-		jsondata.alarmtime = new Date().getTime();
+		//jsondata.alarmtime = new Date().getTime();
+		jsondata.alarmtime = moment().format();
 		
 		console.log("Now change datetime=" + new Date(jsondata.alarmtime));
 

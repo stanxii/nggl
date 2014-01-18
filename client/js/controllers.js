@@ -269,9 +269,15 @@ function($rootScope, $scope, socket) {
     };
 
     //var jsondata = '{"_id":"gufengji","action":"' + action + '"}';
-    var jsondata = {"level": "high"};
 
-    socket.emit('send:alarms.list' , jsondata);
+    var v = {};
+       v.startdate = $scope.salarm.startdate.getTime();
+       v.enddate = $scope.salarm.enddate.getTime();
+       v.level = $scope.salarm.level;      
+       v.orderProp = $scope.salarm.orderProp;
+
+
+    socket.emit('send:alarms.list' , v);
 
     //for list 
     $scope.search = function(salarm) {
