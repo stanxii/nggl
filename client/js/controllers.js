@@ -259,6 +259,10 @@ angular.module('nggl')
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {   
 
+
+   
+
+   
     $scope.salarm = {
         //Dt: Date.now(),       
         startdate: new Date(new Date()-24*60*60*1000),

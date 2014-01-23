@@ -6,12 +6,11 @@
       <form novalidate class="css-form">
 
         告警时间从:<ng-date-time model="salarm.startdate"></ng-date-time> 到：  <ng-date-time model="salarm.enddate"></ng-date-time>
-        <pre><code>起始时间 = {{ salarm.startdate | moment }}</code></pre>
-        <pre><code>终止时间 = {{ salarm.enddate | moment }}</code></pre>         
+        起始时间 = {{ salarm.startdate | moment }} 终止时间 = {{ salarm.enddate | moment }}     
         
        
        
-    salarm.   告警级别等于:
+      告警级别等于:
         <select ng-model="salarm.level">
           <option value="high">high</option>
           <option value="low">low</option>          
@@ -44,5 +43,19 @@
           时间<span class="alarmtime">{{alarm.alarmtime}})</span>
         </li>
       </ul>
+
+      <!--pagination -->
+      <ul class="pagination">
+        <li><a href="#">上一页</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">下一页</a></li>
+      </ul>
+
+     
+      
 </div>    
 
