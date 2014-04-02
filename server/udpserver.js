@@ -42,6 +42,7 @@ var doWorkingData = function(io,jsondata){
 			//alarm will save to redis and es
 			console.log("fuck.......mongo")
 ;			doMongodbOpt(jsondata);
+			io.sockets.emit('send:lutang', jsondata);
 	}
 }
 
