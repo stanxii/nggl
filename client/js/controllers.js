@@ -104,7 +104,7 @@ function($rootScope, $scope, socket) {
                return false;
        };
 
-        var jsondata = '{"cmd":"jinliao","action":"' + action + '"}';
+        var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:jinliao' , jsondata);
     }
 }]);
@@ -114,7 +114,7 @@ angular.module('nggl')
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
     $scope.chuzhaAction = function(action) {
-        var jsondata = '{"cmd":"chuzha","action":"' + action + '"}';
+        var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:chuzha' , jsondata);
     }
 }]);
@@ -125,7 +125,7 @@ angular.module('nggl')
 function($rootScope, $scope, socket) {
    
     $scope.yinfengjiAction = function(action) {
-        var jsondata = '{"cmd":"yinfengji","action":"' + action + '"}';
+        var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:yinfengji' , jsondata);
     }
 
@@ -145,7 +145,7 @@ angular.module('nggl')
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
     $scope.shuibengAction = function(action) {
-        var jsondata = '{"cmd":"shuibeng","action":"' + action + '"}';
+        var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:shuibeng' , jsondata);
     }
 }]);
@@ -239,7 +239,7 @@ angular.module('nggl')
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
     $scope.gufengjiAction = function(action) {
-        var jsondata = '{"cmd":"gufengji","action":"' + action + '"}';
+        var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:gufengji' , jsondata);
     }
 }]);

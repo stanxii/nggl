@@ -35,13 +35,13 @@ var doMongodbOpt = function(jsondata) {
 
 var doWorkingData = function(io,jsondata){
 	if( jsondata.cmd == "trap"){
-		console.log("fucking.....data="+jsondata);
+		//console.log("fucking.....data="+jsondata);
 		io.sockets.emit('send:lutang', jsondata);
 	}
 	else if(jsondata.cmd == "alarm"){
 			//alarm will save to redis and es
-			console.log("fuck.......mongo")
-;			doMongodbOpt(jsondata);
+			//console.log("fuck.......mongo")
+;			//doMongodbOpt(jsondata);
 			io.sockets.emit('send:lutang', jsondata);
 	}
 }
