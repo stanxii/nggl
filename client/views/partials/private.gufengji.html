@@ -1,15 +1,38 @@
-<div class="row-fluid">
-    <div class="span4">
+<div class="row">
+    <div class="col-md-4">
       <!--Sidebar content-->         
-            <img class="lazy" ng-src="/img/lesscss.png" width="300" height="150" />                      
+            <img class="lazy" ng-src="/img/stickup.png" width="200" height="150" /> 
+            <!--Body content-->
+          <h3 style="color: #428bca;"> 
+                    引风机 推杆一<br><small>1号推杆,按下开启引风机按钮表示开启引风机! 按下关闭引风机按钮表示关闭引风机</small>
+            </h3>
+                                 
+            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="gufengjiAction(1)">开启 </button>                             
+            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="gufengjiAction(2)">关闭 </button>                       
     </div>
-    <div class="span8">
-      <!--Body content-->
-        <h3 style="color: #428bca;"> 
-                鼓风机 <br><small> 按下开启按钮，表示开启鼓风机。按下关闭鼓风机安娜，表示关闭鼓风机!</small>
-        </h3>
-                             
-        <button class="btn btn-large btn-primary" ng-click="gufengjiAction(1)">开启鼓风机 </button>                             
-        <button class="btn btn-large btn-primary" ng-click="gufengjiAction(2)">关闭鼓风机</button>
+    <div  class="col-md-4">
+      <!--Sidebar content-->         
+            <img class="lazy" ng-src="/img/stickup.png" width="200" height="150" /> 
+            <!--Body content-->
+          <h3 style="color: #428bca;"> 
+                    引风机 推杆二<br><small>2号推杆,按下开启引风机按钮表示开启引风机! 按下关闭引风机按钮表示关闭引风机</small>
+            </h3>
+                                 
+            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="gufengjiAction(3)">开启 </button>                             
+            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="gufengjiAction(4)">关闭 </button>                       
+   
+    </div>
+    <div  class="col-md-4">
+      <!--Sidebar content-->         
+            <img class="lazy" ng-src="/img/stickup.png" width="200" height="150" /> 
+            <!--Body content-->
+          <h3 style="color: #428bca;"> 
+                    引风机 推杆三<br><small>3号推杆,按下开启引风机按钮表示开启引风机! 按下关闭引风机按钮表示关闭引风机</small>
+            </h3>
+                                 
+            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="gufengjiAction(5)">开启 </button>                             
+            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="gufengjiAction(6)">关闭 </button>                       
+    
     </div>
 </div>    
+

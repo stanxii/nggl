@@ -1,15 +1,38 @@
-<div class="row-fluid">
-    <div class="span4">
+<div class="row">
+    <div class="col-md-4">
       <!--Sidebar content-->         
-            <img class="lazy" ng-src="/img/lesscss.png" width="300" height="150" />                      
+            <img class="lazy" ng-src="/img/stickup.png" width="200" height="150" /> 
+            <!--Body content-->
+          <h3 style="color: #428bca;"> 
+                    水泵 推杆一<br><small>1号推杆,按下开启水泵按钮表示开启水泵! 按下关闭水泵按钮表示关闭水泵</small>
+            </h3>
+                                 
+            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="shuibengAction(1)">开启 </button>                             
+            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(2)">关闭 </button>                       
     </div>
-    <div class="span8">
-      <!--Body content-->
-        <h3 style="color: #428bca;"> 
-                水泵 <br><small> 按下按钮，表示开启水泵。按下关闭水泵按钮，表示关闭水泵!</small>
-        </h3>
-                             
-        <button class="btn btn-large btn-primary" ng-click="shuibengAction(1)">开启水泵 </button>                             
-        <button class="btn btn-large btn-primary" ng-click="shuibengAction(2)">关闭水泵 </button>
+    <div  class="col-md-4">
+      <!--Sidebar content-->         
+            <img class="lazy" ng-src="/img/stickup.png" width="200" height="150" /> 
+            <!--Body content-->
+          <h3 style="color: #428bca;"> 
+                    水泵 推杆二<br><small>2号推杆,按下开启水泵按钮表示开启水泵! 按下关闭水泵按钮表示关闭水泵</small>
+            </h3>
+                                 
+            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="shuibengAction(3)">开启 </button>                             
+            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(4)">关闭 </button>                       
+   
+    </div>
+    <div  class="col-md-4">
+      <!--Sidebar content-->         
+            <img class="lazy" ng-src="/img/stickup.png" width="200" height="150" /> 
+            <!--Body content-->
+          <h3 style="color: #428bca;"> 
+                    水泵 推杆三<br><small>3号推杆,按下开启水泵按钮表示开启水泵! 按下关闭水泵按钮表示关闭水泵</small>
+            </h3>
+                                 
+            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="shuibengAction(5)">开启 </button>                             
+            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(6)">关闭 </button>                       
+    
     </div>
 </div>    
+
