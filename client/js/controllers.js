@@ -157,11 +157,11 @@ angular.module('nggl')
      function($rootScope, $scope, socket) {
 
     $scope.lutang = 32;  
-   $scope.lukou = 34;  
-   $scope.ranshi2ru = 38;  
-   $scope.ranshi2chu = 42;  
+   $scope.ranshi2ru = 34;  
+   $scope.chuchentaru = 38;     
    $scope.budairu = 44;  
    $scope.budaichu = 50; 
+   $scope.yinfengji = 42;  
 
     socket.on('init', function (data) {
         $scope.lutang = data.name;
@@ -171,18 +171,14 @@ angular.module('nggl')
     socket.on('send:lutang', function (data) {
          console.log("recive lutang" + data);
          $scope.lutang = data.temp;
-    });
-    socket.on('send:lukou', function (data) {
-         console.log("recive lukou" + data);
-         $scope.lukou = data.temp;
-    });
+    });    
     socket.on('send:ranshi2ru', function (data) {
          console.log("recive ranshi2ru" + data);
          $scope.ranshi2ru = data.temp;
     });
-    socket.on('send:ranshi2chu', function (data) {
-         console.log("recive ranshi2chu" + data);
-         $scope.ranshi2chu = data.temp;
+    socket.on('send:chuchentaru', function (data) {
+         console.log("recive chuchentaru" + data);
+         $scope.chuchentaru = data.temp;
     });
     socket.on('send:budairu', function (data) {
          console.log("recive budairu" + data);
@@ -191,6 +187,10 @@ angular.module('nggl')
     socket.on('send:budaichu', function (data) {
          console.log("recive budaichu" + data);
          $scope.budaichu = data.temp;
+    });
+    socket.on('send:yinfengji', function (data) {
+         console.log("recive yinfengji" + data);
+         $scope.yinfengji = data.temp;
     });
 
 /*

@@ -33,16 +33,16 @@ var doMongodbOpt = function(jsondata) {
 }
 
 
-var doWorkingData = function(io,jsondata){
+var doWorkingData = function(io,jsondata, cmd){
 	if( jsondata.cmd == "trap"){
 		//console.log("fucking.....data="+jsondata);
-		io.sockets.emit('send:lutang', jsondata);
+		io.sockets.emit(cmd, jsondata);
 	}
 	else if(jsondata.cmd == "alarm"){
 			//alarm will save to redis and es
 			//console.log("fuck.......mongo")
 ;			//doMongodbOpt(jsondata);
-			io.sockets.emit('send:lutang', jsondata);
+			io.sockets.emit(cmd, jsondata);
 	}
 }
 
@@ -76,24 +76,25 @@ module.exports = function(io) {
 
 					
 		switch(rinfo.address){
-			case "192.168.1.168":
-				doWorkingData(io, jsondata);
+			case "192.168.1.159":
+			    var cmd = 'send:lutang';
+				doWorkingData(io, jsondata, cmd);
 
 				break;
-			case "192.168.1.169":
-				io.sockets.emit('send:lukou',JSON.parse(msg));
+			case "192.168.1.161":
+				io.sockets.emit('send:ranshi2ru',jsondata);
 				break;
 			case "192.168.1.170":
-				io.sockets.emit('send:ranshi2ru',JSON.parse(msg));
+				io.sockets.emit('send:chuchentaru',jsondata);
 				break;
 			case "192.168.1.171":
-				io.sockets.emit('send:ranshi2chu',JSON.parse(msg));
+				io.sockets.emit('send:budairu',jsondata);
 				break;
 			case "192.168.1.172":
-				io.sockets.emit('send:budairu',JSON.parse(msg));
+				io.sockets.emit('send:budaichu',jsondata);
 				break;
 			case "192.168.1.173":
-				io.sockets.emit('send:budaichu',JSON.parse(msg));
+				io.sockets.emit('send:yinfengji',jsondata);
 				break;				
 		}
 		

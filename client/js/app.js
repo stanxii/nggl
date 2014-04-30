@@ -64,7 +64,8 @@ angular.module('nggl', ['ngCookies', 'ngRoute', 'ngJustGage', 'ngDateTime'])
             templateUrl:    '/partials/private.gufengji.html',
             controller:     'GufengjiCtrl',
             access:         access.user
-        });   
+        }); 
+        /*  
     $routeProvider.when('/globalconfig',
         {
             templateUrl:    '/partials/private.config.html',
@@ -77,6 +78,7 @@ angular.module('nggl', ['ngCookies', 'ngRoute', 'ngJustGage', 'ngDateTime'])
             controller:     'AlarmsCtrl',
             access:         access.user
         });   
+*/
     $routeProvider.when('/admin',
         {
             templateUrl:    '/partials/admin.html',
