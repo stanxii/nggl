@@ -1,13 +1,31 @@
 <div class="row">
 	<div class="col-md-4">
 		<h3 style="color: #428bca;"> 
-			炉膛温度<br><small> 通过温度传感器实时探测，并实时显示当前炉膛内的温度!</small>
+			炉膛上温度<br><small> 通过温度传感器实时探测，并实时显示当前炉膛上的温度!</small>
 		</h3>
 		<div style="width:300px; height:200px;">
-			<just-gage-dynamic id="lutang" value="lutang" min=0 max=2000 title="炉膛实时温度" label="temperature"></just-gage-dynamic>
+			<just-gage-dynamic id="lutangup" value="lutangup" min=0 max=2000 title="炉膛上实时温度" label="temperature"></just-gage-dynamic>
 		</div>
 	</div>
 	<div class="col-md-4">
+		<h3 style="color: #428bca;"> 
+			炉膛中温度<br><small> 通过温度传感器实时探测，并实时显示当前炉膛中的温度!</small>
+		</h3>
+		<div style="width:300px; height:200px;">
+			<just-gage-dynamic id="lutangmid" value="lutangmid" min=0 max=2000 title="炉膛中实时温度" label="temperature"></just-gage-dynamic>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<h3 style="color: #428bca;"> 
+			炉膛下温度<br><small> 通过温度传感器实时探测，并实时显示当前炉膛下的温度!</small>
+		</h3>
+		<div style="width:300px; height:200px;">
+			<just-gage-dynamic id="lutangdown" value="lutangdown" min=0 max=2000 title="炉膛下实时温度" label="temperature"></just-gage-dynamic>
+		</div>
+	</div>
+</div>
+<div class="row">
+    <div class="col-md-4">
 		<h3 style="color: #428bca;"> 
 		二燃室入口温度<br><small> 通过温度传感器实时探测，并实时显示当前二燃室入口的温度!</small>
 		</h3>
@@ -17,36 +35,52 @@
 	</div>
 	<div class="col-md-4">
 		<h3 style="color: #428bca;"> 
-			除尘塔入口温度<br><small> 通过温度传感器实时探测，并实时显示当前除尘塔入口的温度!</small>
+			二燃室出口温度<br><small> 通过温度传感器实时探测，并实时显示当前二燃室出口的温度!</small>
 		</h3>
 		<div style="width:300px; height:200px;">
-			<just-gage-dynamic id="chuchentaru" value="chuchentaru" min=0 max=2000 title="除尘塔入口实时温度" label="temperature"></just-gage-dynamic>
+			<just-gage-dynamic id="ranshi2chu" value="ranshi2chu" min=0 max=2000 title="二燃室出口实时温度" label="temperature"></just-gage-dynamic>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<h3 style="color: #428bca;"> 
+			洗涤1出口温度<br><small>通过温度传感器实时探测，并实时显示当前洗涤1出口的温度!</small>
+		</h3>
+		<div style="width:300px; height:200px;">
+			<just-gage-dynamic id="xidi1" value="xidi1" min=0 max=2000 title="洗涤1出口实时温度" label="temperature"></just-gage-dynamic>
 		</div>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-4">
+<div class="row">	
+	<div class="col-md-3">
 		<h3 style="color: #428bca;"> 
-			布袋入温度<br><small>通过温度传感器实时探测，并实时显示当前布袋入的温度!</small>
+			洗涤2出口温度<br><small> 通过温度传感器实时探测，并实时显示当前洗涤2出口的温度!</small>
 		</h3>
-		<div style="width:300px; height:200px;">
+		<div style="width:200px; height:150px;">
+			<just-gage-dynamic id="xidi2" value="xidi2" min=0 max=2000 title="洗涤2出口实时温度" label="temperature"></just-gage-dynamic>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<h3 style="color: #428bca;"> 
+			洗涤3出口温度<br><small> 通过温度传感器实时探测，并实时显示当前洗涤3出口的温度!</small>
+		</h3>
+		<div style="width:200px; height:150px;">
+			<just-gage-dynamic id="xidi3" value="xidi3" min=0 max=2000 title="洗涤3出口实时温度" label="temperature"></just-gage-dynamic>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<h3 style="color: #428bca;"> 
+			布袋入温度<br><small> 通过温度传感器实时探测，并实时显示当前布袋入的温度!</small>
+		</h3>
+		<div style="width:200px; height:150px;">
 			<just-gage-dynamic id="budairu" value="budairu" min=0 max=2000 title="布袋入实时温度" label="temperature"></just-gage-dynamic>
 		</div>
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-3">
 		<h3 style="color: #428bca;"> 
-			布袋出温度<br><small> 通过温度传感器实时探测，并实时显示当前布袋出口的温度!</small>
+			布袋出温度<br><small> 通过温度传感器实时探测，并实时显示当前布袋出的温度!</small>
 		</h3>
-		<div style="width:300px; height:200px;">
+		<div style="width:200px; height:150px;">
 			<just-gage-dynamic id="budaichu" value="budaichu" min=0 max=2000 title="布袋出实时温度" label="temperature"></just-gage-dynamic>
-		</div>
-	</div>
-	<div class="col-md-4">
-		<h3 style="color: #428bca;"> 
-			引风机入口温度<br><small> 通过温度传感器实时探测，并实时显示当前引风机入口的温度!</small>
-		</h3>
-		<div style="width:300px; height:200px;">
-			<just-gage-dynamic id="yinfengji" value="yinfengji" min=0 max=2000 title="引风机入口实时温度" label="temperature"></just-gage-dynamic>
 		</div>
 	</div>
 </div>

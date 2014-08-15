@@ -156,29 +156,41 @@ angular.module('nggl')
 [            '$rootScope', '$scope', 'socket', 
      function($rootScope, $scope, socket) {
 
-    $scope.lutang = 32;  
+    $scope.lutangup = 32;  
+    $scope.lutangmid = 32;  
+    $scope.lutangdown = 32;  
    $scope.ranshi2ru = 34;  
-   $scope.chuchentaru = 38;     
+   $scope.ranshi2chu = 38;
+   $scope.xidi1 = 33;     
+   $scope.xidi2 = 33;     
+   $scope.xidi3 = 33;     
    $scope.budairu = 44;  
    $scope.budaichu = 50; 
-   $scope.yinfengji = 42;  
 
     socket.on('init', function (data) {
-        $scope.lutang = data.name;
+        $scope.lutangup = data.name;
         $scope.users = data.users;
      });
 
-    socket.on('send:lutang', function (data) {
-         console.log("recive lutang" + data);
-         $scope.lutang = data.temp;
+    socket.on('send:lutangup', function (data) {
+         console.log("recive lutangup" + data);
+         $scope.lutangup = data.temp;
+    });
+    socket.on('send:lutangmid', function (data) {
+         console.log("recive lutangmid" + data);
+         $scope.lutangmid = data.temp;
+    });
+    socket.on('send:lutangdown', function (data) {
+         console.log("recive lutangdown" + data);
+         $scope.lutangdown = data.temp;
     });    
     socket.on('send:ranshi2ru', function (data) {
          console.log("recive ranshi2ru" + data);
          $scope.ranshi2ru = data.temp;
     });
-    socket.on('send:chuchentaru', function (data) {
-         console.log("recive chuchentaru" + data);
-         $scope.chuchentaru = data.temp;
+    socket.on('send:ranshi2chu', function (data) {
+         console.log("recive ranshi2chu" + data);
+         $scope.ranshi2chu = data.temp;
     });
     socket.on('send:budairu', function (data) {
          console.log("recive budairu" + data);
@@ -188,9 +200,17 @@ angular.module('nggl')
          console.log("recive budaichu" + data);
          $scope.budaichu = data.temp;
     });
-    socket.on('send:yinfengji', function (data) {
-         console.log("recive yinfengji" + data);
-         $scope.yinfengji = data.temp;
+    socket.on('send:xidi1', function (data) {
+         console.log("recive xidi1" + data);
+         $scope.xidi1 = data.temp;
+    });
+    socket.on('send:xidi2', function (data) {
+         console.log("recive xidi2" + data);
+         $scope.xidi2 = data.temp;
+    });
+    socket.on('send:xidi3', function (data) {
+         console.log("recive xidi3" + data);
+         $scope.xidi3 = data.temp;
     });
 
 /*
