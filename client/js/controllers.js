@@ -94,18 +94,24 @@ angular.module('nggl')
 .controller('JinliaoCtrl',
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
-    $scope.myvalid = false;
+        $scope.myvalid = false;
 
-    $scope.jinliaoAction = function(action) {
-            
-        console.log("now myvalidis true");
+        $scope.isSelected = 0;    
+
+        $scope.jinliaoAction = function(action) {
+        
+        $scope.isSelected = action;
+
+
+                       
+        console.log("now isSelected =  true" + action);
         
         $scope.myvalid=function(e){               
                return false;
        };
 
-        var jsondata = '{"cmd":"set","action":"' + action + '"}';
-        socket.emit('send:jinliao' , jsondata);
+    var jsondata = '{"cmd":"set","action":"' + action + '"}';
+    socket.emit('send:jinliao' , jsondata);
     }
 }]);
 
@@ -113,7 +119,11 @@ angular.module('nggl')
 .controller('ChuzhaCtrl',
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
+
+    $scope.isSelected = 0;
+
     $scope.chuzhaAction = function(action) {
+        $scope.isSelected = action;
         var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:chuzha' , jsondata);
     }
@@ -124,7 +134,9 @@ angular.module('nggl')
 [        '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
    
+    $scope.isSelected = 0;
     $scope.yinfengjiAction = function(action) {
+        $scope.isSelected = action;
         var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:yinfengji' , jsondata);
     }
@@ -144,7 +156,9 @@ angular.module('nggl')
 .controller('ShuibengCtrl',
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
+    $scope.isSelected = 0;
     $scope.shuibengAction = function(action) {
+        $scope.isSelected = action;
         var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:shuibeng' , jsondata);
     }
@@ -258,7 +272,9 @@ angular.module('nggl')
 .controller('GufengjiCtrl',
 [   '$rootScope', '$scope', 'socket', 
 function($rootScope, $scope, socket) {
+    $scope.isSelected = 0;
     $scope.gufengjiAction = function(action) {
+        $scope.isSelected = action;
         var jsondata = '{"cmd":"set","action":"' + action + '"}';
         socket.emit('send:gufengji' , jsondata);
     }

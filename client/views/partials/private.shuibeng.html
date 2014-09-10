@@ -7,10 +7,10 @@
                     水泵 推杆一<br><small>1号推杆,按下开启水泵按钮表示开启水泵! 按下关闭水泵按钮表示关闭水泵</small>
             </h3>
                                  
-            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="shuibengAction(1)">开启 </button>                             
-            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(2)">关闭 </button>
+            <button ng-class="{'selected': isSelected == 1}"  id="stan1" class="btn btn-large btn-primary" ng-click="shuibengAction(1)">开启 </button>                             
+            <button ng-class="{'selected': isSelected == 2}"  id="stan2" class="btn btn-large btn-primary" ng-click="shuibengAction(2)">关闭 </button>
 
-            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(7)">停止 </button>                       
+            <button ng-class="{'selected': isSelected == 7}"  id="stan7" class="btn btn-large btn-primary" ng-click="shuibengAction(7)">停止 </button>                       
     </div>
     <div  class="col-md-4">
       <!--Sidebar content-->         
@@ -20,10 +20,10 @@
                     水泵 推杆二<br><small>2号推杆,按下开启水泵按钮表示开启水泵! 按下关闭水泵按钮表示关闭水泵</small>
             </h3>
                                  
-            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="shuibengAction(3)">开启 </button>                             
-            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(4)">关闭 </button>
+            <button ng-class="{'selected': isSelected == 3}"  id="stan3" class="btn btn-large btn-primary" ng-click="shuibengAction(3)">开启 </button>                             
+            <button ng-class="{'selected': isSelected == 4}"  id="stan4" class="btn btn-large btn-primary" ng-click="shuibengAction(4)">关闭 </button>
 
-            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(8)">停止 </button>                       
+            <button ng-class="{'selected': isSelected == 8}"  id="stan8" class="btn btn-large btn-primary" ng-click="shuibengAction(8)">停止 </button>                       
    
     </div>
     <div  class="col-md-4">
@@ -34,10 +34,10 @@
                     水泵 推杆三<br><small>3号推杆,按下开启水泵按钮表示开启水泵! 按下关闭水泵按钮表示关闭水泵</small>
             </h3>
                                  
-            <button ng-disabled="myvalid(true)" class="btn btn-large btn-primary" ng-click="shuibengAction(5)">开启 </button>                             
-            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(6)">关闭 </button>
+            <button ng-class="{'selected': isSelected == 5}"  id="stan5" class="btn btn-large btn-primary" ng-click="shuibengAction(5)">开启 </button>                             
+            <button ng-class="{'selected': isSelected == 6}"  id="stan6" class="btn btn-large btn-primary" ng-click="shuibengAction(6)">关闭 </button>
 
-            <button ng-disabled="myvalid(false)" class="btn btn-large btn-primary" ng-click="shuibengAction(9)">停止 </button>                       
+            <button ng-class="{'selected': isSelected == 9}"  id="stan9" class="btn btn-large btn-primary" ng-click="shuibengAction(9)">停止 </button>                       
     
     </div>
 </div>    

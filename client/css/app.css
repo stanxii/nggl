@@ -50,12 +50,12 @@ body {
     opacity:1;
 }
 
-//Login page
+
 .hero-unit {
     text-align: center;
 }
 
-///////alarms begin
+
 .alarms {
     list-style: none;
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
@@ -84,4 +84,41 @@ body {
 li > span {
     margin-left: 8  0px;
 }
+
+#stan1.selected{
+    background-color: green;
+}
+
+#stan2.selected{
+    background-color: green;
+}
+#stan7.selected{
+    background-color: green;
+}
+
+#stan3.selected{
+    background-color: green;
+}
+
+#stan4.selected{
+    background-color: green;
+}
+#stan8.selected{
+    background-color: green;
+}
+
+#stan5.selected{
+    background-color: green;
+}
+
+#stan6.selected{
+    background-color: green;
+}
+#stan9.selected{
+    background-color: green;
+}
+
+
 ///////alarm end
+
+
