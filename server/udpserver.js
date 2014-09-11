@@ -76,33 +76,36 @@ module.exports = function(io) {
 
 					
 		switch(rinfo.address){
-			case "192.168.1.159":
+			case "192.168.1.192":
 			    var cmd = 'send:lutangup';
 				//doWorkingData(io, jsondata, cmd);
 				io.sockets.emit('send:lutangup',jsondata);
 				break;
-			case "192.168.1.160":
+			case "192.168.1.193":
+				io.sockets.emit('send:lutangmid',jsondata);
+				break;
+			case "192.168.1.194":
 				io.sockets.emit('send:lutangdown',jsondata);
 				break;
-			case "192.168.1.161":
+			case "192.168.1.195":
 				io.sockets.emit('send:ranshi2ru',jsondata);
 				break;		
-			case "192.168.1.162":
+			case "192.168.1.196":
 				io.sockets.emit('send:ranshi2chu',jsondata);
 				break;
-			case "192.168.1.163":
+			case "192.168.1.197":
 				io.sockets.emit('send:xidi1',jsondata);
 				break;
-			case "192.168.1.164":
+			case "192.168.1.198":
 				io.sockets.emit('send:xidi2',jsondata);
 				break;
-			case "192.168.1.165":
-				io.sockets.emit('send:xidi2',jsondata);
+			case "192.168.1.199":
+				io.sockets.emit('send:xidi3',jsondata);
 				break;		
-			case "192.168.1.166":
+			case "192.168.1.200":
 				io.sockets.emit('send:budairu',jsondata);
 				break;
-			case "192.168.1.157":
+			case "192.168.1.201":
 				io.sockets.emit('send:budaichu',jsondata);
 				break;			
 		}
